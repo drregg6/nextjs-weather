@@ -1,16 +1,22 @@
 import Head from 'next/head';
+import layoutStyles from './layout.module.scss'
 
 import Header from './header';
 import Footer from './footer';
 
-const Layout = (props) => {
+export const author = 'Dave Regg';
+export const siteTitle = 'Next.js Weather App';
+
+const Layout = props => {
   return (
-    <div>
+    <div className={layoutStyles.container}>
       <Head>
         <title>Weather App</title>
       </Head>
-      <Header />
-      {props.children}
+      <div className={layoutStyles.content}>
+        <Header />
+        {props.children}
+      </div>
       <Footer />
     </div>
   )
