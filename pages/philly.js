@@ -1,4 +1,4 @@
-import axios from 'axios';
+import fetch from 'node-fetch';
 
 import Layout from '../components/layout';
 
@@ -15,10 +15,10 @@ const Philly = ({ weather }) => {
 }
 
 Philly.getInitialProps = async (context) => {
-  const res = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=39.95&lon=-75.16&appid=${process.env.WEATHER_API}&units=imperial`);
-  console.log(res)
+  const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=39.95&lon=-75.16&appid=${process.env.WEATHER_API}&units=imperial`);
+  const data = await res.json();
   return {
-    weather: res.data
+    weather: data
   }
 }
 
