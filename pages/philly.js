@@ -3,12 +3,14 @@ import fetch from 'node-fetch';
 import Layout from '../components/layout';
 
 const Philly = ({ weather }) => {
+  const { current, daily, hourly } = weather;
   console.log(weather);
   return (
     <Layout>
       <h1>Philadelphia Weather</h1>
       <div>
-        
+        <p>Temp: { current.feels_like }</p>
+        <p>Weather: { current.weather[0].main }</p>
       </div>
     </Layout>
   )
