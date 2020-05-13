@@ -1,7 +1,7 @@
 {
   "name": "nextjs-weather",
   "version": "1.0.0",
-  "description": "",
+  "description": "A weather app created with Next.js",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
@@ -12,9 +12,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dave Regg <dave.r.regg@gmail.com>",
   "license": "MIT"
 }
