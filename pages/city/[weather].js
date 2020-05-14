@@ -6,7 +6,7 @@ TODO
 = create components to isolate and provide more information(?)
 
 */
-
+import weatherStyles from './weather.module.scss';
 import Layout from '../../components/layout/layout';
 import Current from '../../components/weather/current';
 import Hourly from '../../components/weather/hourly';
@@ -14,7 +14,7 @@ import Daily from '../../components/weather/daily';
 
 // Will return weather from the search query
 const Weather = ({ weather, location }) => {
-  console.log(location)
+  const datetime = Date.now();
   const { city, state, country_code } = location.components;
   const { current } = weather;
   const daily = weather.daily.slice(0,3)
@@ -22,12 +22,12 @@ const Weather = ({ weather, location }) => {
   return (
     <Layout>
       <div>
-        <h1>{`${city ? city : state}, ${country_code.toUpperCase()}`}</h1>
-        <div>
-          <Current current={current} />
-          <Daily daily={daily} />
-          <Hourly hourly={hourly} />
+        <div className={weatherStyles.current}>
+          <h1 className={weatherStyles.title}>{`${city ? city : state}, ${country_code.toUpperCase()}`}</h1>
+          <Current current={current} datetime={datetime} />
         </div>
+        <Daily daily={daily} datetime={datetime} />
+        <Hourly hourly={hourly} datetime={datetime} />
       </div>
     </Layout>
   )

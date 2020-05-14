@@ -1,6 +1,7 @@
 .container {
-  margin: 1rem auto;
+  margin-bottom: 10rem;
   padding: 1rem;
+  font-size: 3.2rem;
 
   img {
     margin: 0 auto;
@@ -8,13 +9,7 @@
 }
 
 .temp {
-  font-size: 2.5rem;
-
   small {
-    font-size: 1rem;
+    font-size: 3rem;
   }
-}
-
-.desc {
-  font-size: 2rem;
 }

@@ -1,6 +1,8 @@
 .header {
+  font-size: 1.4rem;
   width: 100%;
-  margin: 3rem 0;
+  padding: 3rem 2rem 3rem;
+  background: peachpuff;
 
   display: flex;
   justify-content: space-between;
@@ -15,7 +17,7 @@
       display: flex;
 
       li {
-        margin-right: 1rem;
+        margin-right: 2rem;
       }
       li:last-child {
         margin-right: 0;
@@ -25,7 +27,7 @@
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: #000;
 }
 .logo:hover {

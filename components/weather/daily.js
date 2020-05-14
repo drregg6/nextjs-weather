@@ -4,7 +4,7 @@ import dailyStyles from './daily.module.scss';
 import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 
-const Daily = ({ daily }) => {
+const Daily = ({ daily, datetime }) => {
   console.log(daily)
   return (
     <div className={dailyStyles.container}>
@@ -12,9 +12,10 @@ const Daily = ({ daily }) => {
       <div className={dailyStyles.forecast}>
         {
           daily.map((day, idx) => {
-            const datetime = new Date(day.dt);
             return (
               <div key={idx} className={dailyStyles.day}>
+                <small><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></small>
+                <p><Moment add={{ days: `${idx}` }} format="DD MMM">{datetime}</Moment></p>
                 <img src={getIcon(day.weather[0].icon)} alt={day.weather[0].description} />
                 <div>
                   <p>High: {Math.floor(day.temp.max)}&deg;</p>
@@ -24,7 +25,6 @@ const Daily = ({ daily }) => {
                 <div>
                   <p>{`${capitalize(day.weather[0].description)}`}</p>
                 </div>
-                <small>{day.dt}</small>
               </div>
             )
           })

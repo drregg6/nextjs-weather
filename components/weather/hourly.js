@@ -1,10 +1,17 @@
+/*
+
+Use a grid instead of flexbox
+In order to generate hourly into two rows
+
+*/
+
 import Moment from 'react-moment';
 import hourlyStyles from './hourly.module.scss';
 
 import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 
-const Hourly = ({ hourly }) => {
+const Hourly = ({ hourly, datetime }) => {
   console.log(hourly)
   const firstSix = hourly.slice(0,6);
   const lastSix = hourly.slice(6);
@@ -15,9 +22,9 @@ const Hourly = ({ hourly }) => {
         <div className={hourlyStyles.row}>
         {
           firstSix.map((hour, idx) => {
-            const datetime = new Date(hour.dt);
             return (
               <div key={idx} className={hourlyStyles.hour}>
+                <small><Moment add={{ hours: `${idx}` }} format="H:mm">{datetime}</Moment></small>
                 <img src={getIcon(hour.weather[0].icon)} alt={hour.weather[0].description} />
                 <div>
                   <p>Temp: {Math.floor(hour.temp)}&deg;</p>
@@ -26,7 +33,6 @@ const Hourly = ({ hourly }) => {
                 <div>
                   <p>{`${capitalize(hour.weather[0].description)}`}</p>
                 </div>
-                <small>{hour.dt}</small>
               </div>
             )
           })
@@ -35,9 +41,9 @@ const Hourly = ({ hourly }) => {
         <div className={hourlyStyles.row}>
         {
           lastSix.map((hour, idx) => {
-            const datetime = new Date(hour.dt);
             return (
               <div key={idx} className={hourlyStyles.hour}>
+                <small><Moment add={{ hours: `${idx}` }} format="H:mm">{datetime}</Moment></small>
                 <img src={getIcon(hour.weather[0].icon)} alt={hour.weather[0].description} />
                 <div>
                   <p>Temp: {Math.floor(hour.temp)}&deg;</p>
@@ -46,7 +52,6 @@ const Hourly = ({ hourly }) => {
                 <div>
                   <p>{`${capitalize(hour.weather[0].description)}`}</p>
                 </div>
-                <small>{hour.dt}</small>
               </div>
             )
           })

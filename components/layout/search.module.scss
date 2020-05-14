@@ -1,0 +1,28 @@
+.container {
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  background: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input,
+.search {
+  font-size: 1.4rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+  padding: .75rem 1.5rem;
+}
+
+.input {
+  margin-right: 1rem;
+  width: 450px;
+}
+
+.search {
+  background: #fff;
+}

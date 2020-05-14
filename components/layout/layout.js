@@ -2,6 +2,7 @@ import Head from 'next/head';
 import layoutStyles from './layout.module.scss'
 
 import Header from './header';
+import Search from './search';
 import Footer from './footer';
 
 export const author = 'Dave Regg';
@@ -15,6 +16,7 @@ const Layout = props => {
       </Head>
       <div className={layoutStyles.main}>
         <Header />
+        <Search />
         <div className={layoutStyles.content}>
           {props.children}
         </div>
