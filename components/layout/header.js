@@ -6,7 +6,7 @@ import headerStyles from './header.module.scss';
 export default function Header() {
   return (
     <header className={headerStyles.header}>
-      <h1>Next.js Weather</h1>
+      <Link href="/"><a className={headerStyles.logo}>Next.js Weather</a></Link>
       <Nav />
     </header>
   )

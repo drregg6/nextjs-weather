@@ -2,7 +2,6 @@
   max-width: 960px;
   min-height: 100vh;
   padding: 0 1rem;
-  // margin: 3rem auto 6rem;
   margin: 0 auto;
 
 
@@ -10,6 +9,11 @@
   flex-direction: column;
 }
 
-.content {
+.main {
   flex-grow: 1;
+}
+
+.content {
+  margin: 0 auto;
+  text-align: center;
 }

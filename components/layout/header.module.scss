@@ -1,12 +1,12 @@
 .header {
   width: 100%;
+  margin: 3rem 0;
 
-  h1 {
-    margin-bottom: 1rem;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   nav {
-    margin-bottom: 3rem;
-
     ul {
       padding: 0;
       margin: 0;
@@ -22,4 +22,12 @@
       }
     }
   }
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #000;
+}
+.logo:hover {
+  color: #000;
 }

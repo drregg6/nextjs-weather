@@ -13,9 +13,11 @@ const Layout = props => {
       <Head>
         <title>Weather App</title>
       </Head>
-      <div className={layoutStyles.content}>
+      <div className={layoutStyles.main}>
         <Header />
-        {props.children}
+        <div className={layoutStyles.content}>
+          {props.children}
+        </div>
       </div>
       <Footer />
     </div>
