@@ -1,23 +1,24 @@
+/*
 
+TODO
+= fallback to index when error
+= create components for flash, hourly, and daily
+= create components to isolate and provide more information(?)
 
-import Layout from '../../components/layout';
+*/
+
+import Layout from '../../components/layout/layout';
 
 // Will return weather from the search query
 const Weather = ({ weather, location }) => {
-  console.log(location);
-  const { city, country_code } = location.components;
-  console.log(city, country_code)
+  console.log(location)
+  const { city, state, country_code } = location.components;
   const { current, daily, hourly } = weather;
   console.log(weather)
-  // console.log(current)
-  // console.log('')
-  // console.log(daily)
-  // console.log('')
-  // console.log(hourly)
   return (
     <Layout>
       <div>
-        <h1>{`${city}, ${country_code.toUpperCase()}`}</h1>
+        <h1>{`${city ? city : state}, ${country_code.toUpperCase()}`}</h1>
       </div>
     </Layout>
   )
