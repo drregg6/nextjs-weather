@@ -1,4 +1,5 @@
 import Moment from 'react-moment';
+import hourlyStyles from './hourly.module.scss';
 
 import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
@@ -6,7 +7,7 @@ import { capitalize } from '../../utils/stringHelper';
 const Hourly = ({ hourly }) => {
   console.log(hourly)
   return (
-    <div>
+    <div className={hourlyStyles.container}>
       {
         hourly.map((hour, idx) => {
           const datetime = new Date(hour.dt);

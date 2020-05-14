@@ -16,7 +16,8 @@ import Daily from '../../components/weather/daily';
 const Weather = ({ weather, location }) => {
   console.log(location)
   const { city, state, country_code } = location.components;
-  const { current, daily } = weather;
+  const { current } = weather;
+  const daily = weather.daily.slice(0,3)
   const hourly = weather.hourly.slice(0,12);
   return (
     <Layout>
@@ -24,8 +25,8 @@ const Weather = ({ weather, location }) => {
         <h1>{`${city ? city : state}, ${country_code.toUpperCase()}`}</h1>
         <div>
           <Current current={current} />
-          <Hourly hourly={hourly} />
           <Daily daily={daily} />
+          <Hourly hourly={hourly} />
         </div>
       </div>
     </Layout>

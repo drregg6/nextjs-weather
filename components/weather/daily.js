@@ -1,4 +1,5 @@
 import Moment from 'react-moment';
+import dailyStyles from './daily.module.scss';
 
 import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
@@ -6,7 +7,7 @@ import { capitalize } from '../../utils/stringHelper';
 const Daily = ({ daily }) => {
   console.log(daily)
   return (
-    <div>
+    <div className={dailyStyles.container}>
       {
         daily.map((day, idx) => {
           const datetime = new Date(day.dt);
