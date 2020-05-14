@@ -8,7 +8,7 @@ const Daily = ({ daily, datetime }) => {
   console.log(daily)
   return (
     <div className={dailyStyles.container}>
-      <h1>Three Day Forecast</h1>
+      <h1 className={dailyStyles.subtitle}>Three Day Forecast</h1>
       <div className={dailyStyles.forecast}>
         {
           daily.map((day, idx) => {

@@ -17,7 +17,7 @@ const Hourly = ({ hourly, datetime }) => {
   const lastSix = hourly.slice(6);
   return (
     <div className={hourlyStyles.container}>
-      <h1>Twelve hour forecast</h1>
+      <h1 className={hourlyStyles.subtitle}>Twelve hour forecast</h1>
       <div className={hourlyStyles.forecast}>
         <div className={hourlyStyles.row}>
         {
