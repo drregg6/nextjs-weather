@@ -3,12 +3,21 @@
 import Layout from '../../components/layout';
 
 // Will return weather from the search query
-const Weather = ({ weather }) => {
-  console.log(weather);
+const Weather = ({ weather, location }) => {
+  console.log(location);
+  const { city, country_code } = location.components;
+  console.log(city, country_code)
+  const { current, daily, hourly } = weather;
+  console.log(weather)
+  // console.log(current)
+  // console.log('')
+  // console.log(daily)
+  // console.log('')
+  // console.log(hourly)
   return (
     <Layout>
       <div>
-        <h1>You've hit Weather</h1>
+        <h1>{`${city}, ${country_code.toUpperCase()}`}</h1>
       </div>
     </Layout>
   )
@@ -27,6 +36,7 @@ export async function getServerSideProps(ctx) {
   // return to props
   return {
     props: {
+      location: loc_data.results[0],
       weather: weather_data
     }
   }
