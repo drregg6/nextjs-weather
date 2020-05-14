@@ -5,10 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
+    "moment": "^2.25.3",
     "next": "^9.4.0",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-moment": "^0.9.7",
     "sass": "^1.26.5"
   },
   "devDependencies": {},
