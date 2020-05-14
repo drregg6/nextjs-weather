@@ -8,17 +8,25 @@ TODO
 */
 
 import Layout from '../../components/layout/layout';
+import Current from '../../components/weather/current';
+import Hourly from '../../components/weather/hourly';
+import Daily from '../../components/weather/daily';
 
 // Will return weather from the search query
 const Weather = ({ weather, location }) => {
   console.log(location)
   const { city, state, country_code } = location.components;
-  const { current, daily, hourly } = weather;
-  console.log(weather)
+  const { current, daily } = weather;
+  const hourly = weather.hourly.slice(0,12);
   return (
     <Layout>
       <div>
         <h1>{`${city ? city : state}, ${country_code.toUpperCase()}`}</h1>
+        <div>
+          <Current current={current} />
+          <Hourly hourly={hourly} />
+          <Daily daily={daily} />
+        </div>
       </div>
     </Layout>
   )
