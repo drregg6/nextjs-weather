@@ -8,27 +8,28 @@ const Daily = ({ daily }) => {
   console.log(daily)
   return (
     <div className={dailyStyles.container}>
-      {
-        daily.map((day, idx) => {
-          const datetime = new Date(day.dt);
-          return (
-            <div key={idx}>
-              <div>
+      <h1>Three Day Forecast</h1>
+      <div className={dailyStyles.forecast}>
+        {
+          daily.map((day, idx) => {
+            const datetime = new Date(day.dt);
+            return (
+              <div key={idx} className={dailyStyles.day}>
                 <img src={getIcon(day.weather[0].icon)} alt={day.weather[0].description} />
+                <div>
+                  <p>High: {Math.floor(day.temp.max)}&deg;</p>
+                  <p>Low: {Math.floor(day.temp.min)}&deg;</p>
+                  <small>High feels like: {Math.floor(day.feels_like.day)}&deg;</small>
+                </div>
+                <div>
+                  <p>{`${capitalize(day.weather[0].description)}`}</p>
+                </div>
+                <small>{day.dt}</small>
               </div>
-              <div>
-                <p>High: {Math.floor(day.temp.max)}&deg;</p>
-                <p>Low: {Math.floor(day.temp.min)}&deg;</p>
-                <small>High feels like: {Math.floor(day.feels_like.day)}&deg;</small>
-              </div>
-              <div>
-                <p>Weather: {`${capitalize(day.weather[0].description)}`}</p>
-              </div>
-              <small>{day.dt}</small>
-            </div>
-          )
-        })
-      }
+            )
+          })
+        }
+      </div>
     </div>
   )
 }

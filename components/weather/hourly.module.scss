@@ -1,3 +1,31 @@
 .container {
+  margin: 2rem 0;
+}
+
+.forecast {
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  margin: 1rem 0;
+}
+.row {
+  display: flex;
+  justify-content: center;
+
+  margin: .5rem 0;
+}
+
+.hour {
+  font-size: 1.2rem;
+  border: 1px solid black;
+  margin-right: .5rem;
+  padding: 1rem;
+
+  img {
+    margin: 0 auto;
+  }
+}
+.hour:last-child {
+  margin-right: 0;
 }
