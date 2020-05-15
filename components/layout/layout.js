@@ -10,18 +10,20 @@ export const siteTitle = 'Next.js Weather App';
 
 const Layout = props => {
   return (
-    <div className={layoutStyles.container}>
+    <div>
       <Head>
-        <title>Weather App</title>
+        <title>{siteTitle}</title>
       </Head>
-      <div className={layoutStyles.main}>
-        <Header />
-        <Search />
-        <div className={layoutStyles.content}>
-          {props.children}
+      <div  className={layoutStyles.container}>
+        <div className={layoutStyles.main}>
+          <Header />
+          <Search />
+          <div className={layoutStyles.content}>
+            {props.children}
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
