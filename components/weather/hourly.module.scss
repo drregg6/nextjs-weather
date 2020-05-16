@@ -1,35 +1,51 @@
 .container {
-  margin: 2rem 0;
+  flex: 1 1 auto;
 }
 
 .subtitle {
-  font-size: 2.4rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .forecast {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
-  margin: 1rem 0;
-}
-.row {
-  display: flex;
-  justify-content: center;
-
-  margin: .5rem 0;
 }
 
 .hour {
-  font-size: 1.2rem;
-  border: 1px solid black;
-  margin-right: .5rem;
-  padding: 1rem;
+  font-size: 1.1rem;
+  border-bottom: 2px dashed black;
 
-  img {
-    margin: 0 auto;
+  .time {
+    font-size: 1.4rem;
+    margin-top: .75rem;
+  }
+
+  .details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    img {
+      width: 50px;
+    }
+  }
+
+  &:first-child {
+    border-top: 2px dashed black;
   }
 }
-.hour:last-child {
-  margin-right: 0;
+
+.link {
+  font-size: 1.4rem;
+  padding: 4rem 0;
+  background: gray;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
 }

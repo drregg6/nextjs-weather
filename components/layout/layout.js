@@ -15,12 +15,12 @@ const Layout = props => {
         <title>{siteTitle}</title>
       </Head>
       <div  className={layoutStyles.container}>
-        <div className={layoutStyles.main}>
+        <div className={layoutStyles.head}>
           <Header />
           <Search />
-          <div className={layoutStyles.content}>
-            {props.children}
-          </div>
+        </div>
+        <div className={layoutStyles.content}>
+          {props.children}
         </div>
         <Footer />
       </div>
