@@ -1,7 +1,11 @@
 .container {
-  margin-bottom: 10rem;
+  flex: 10 1 auto;
   padding: 1rem;
   font-size: 3.2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   img {
     margin: 0 auto;
@@ -11,5 +15,11 @@
 .temp {
   small {
     font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    order: -1;
   }
 }

@@ -1,5 +1,5 @@
 .header {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   width: 100%;
   padding: 3rem 2rem 3rem;
   background: peachpuff;
@@ -32,4 +32,18 @@
 }
 .logo:hover {
   color: #000;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    padding: 1rem 0;
+    flex-direction: column;
+    justify-content: space-between;
+    nav {
+      margin: 1rem 0;
+      ul {
+        
+      }
+    }
+  }
 }
