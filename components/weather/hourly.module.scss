@@ -43,6 +43,15 @@
   background: gray;
 }
 
+.linktext {
+  cursor: pointer;
+  color: #c4c4c4;
+
+  &:hover {
+    color: #9a9a9a;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .container {
     margin-top: 150px;

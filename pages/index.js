@@ -6,9 +6,10 @@ TODO
 = Hover on Current component
     - More information
 = Button to toggle F and C
-= Adjust Daily component so it isn't redundant
 = Adjust CSS so it isn't redundant
     - Universal classes
+    - Color scheme
+= Submit button should work when enter is clicked
 
 */
 

@@ -1,12 +1,19 @@
 import Moment from 'react-moment';
 import dailyStyles from './daily.module.scss';
-import Link from 'next/link';
+import Router from 'next/router';
 
 import { getIcon } from '../../utils/weatherHelper';
-import { capitalize } from '../../utils/stringHelper';
 
-const Daily = ({ daily, datetime }) => {
-  console.log(daily)
+const Daily = ({ link, daily, datetime }) => {
+  // Router
+  const handleClick = () => {
+    Router.push({
+      pathname: `/city/daily`,
+      query: {
+        city: `${link}`
+      }
+    })
+  }
   return (
     <div className={dailyStyles.container}>
       <h1 className={dailyStyles.subtitle}>Future Cast</h1>
@@ -26,7 +33,7 @@ const Daily = ({ daily, datetime }) => {
           })
         }
         <div className={dailyStyles.link}>
-          <Link href="#"><a>See further into the future...</a></Link>
+          <span className={dailyStyles.linktext} onClick={handleClick}>See further into the future...</span>
         </div>
       </div>
     </div>

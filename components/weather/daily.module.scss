@@ -36,3 +36,12 @@
   font-size: 1.4rem;
   background: gray;
 }
+
+.linktext {
+  cursor: pointer;
+  color: #c4c4c4;
+
+  &:hover {
+    color: #9a9a9a;
+  }
+}

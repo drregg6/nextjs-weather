@@ -1,22 +1,24 @@
-/*
-
-Use a grid instead of flexbox
-In order to generate hourly into two rows
-
-*/
-
 import Moment from 'react-moment';
 import hourlyStyles from './hourly.module.scss';
-import Link from 'next/link';
+import Router from 'next/router';
 
 import { getIcon } from '../../utils/weatherHelper';
-import { capitalize } from '../../utils/stringHelper';
 
-const Hourly = ({ hourly, datetime }) => {
+const Hourly = ({ link, hourly, datetime }) => {
+  // Router
+  const handleClick = () => {
+    Router.push({
+      pathname: `/city/hourly`,
+      query: {
+        city: `${link}`
+      }
+    })
+  }
+
   console.log(hourly);
   return (
     <div className={hourlyStyles.container}>
-      <h1 className={hourlyStyles.subtitle}>Twelve hour forecast</h1>
+      <h1 className={hourlyStyles.subtitle}>Six hour forecast</h1>
       <div className={hourlyStyles.forecast}>
         {
           hourly.slice(0,6).map((hour, idx) => {
@@ -32,7 +34,7 @@ const Hourly = ({ hourly, datetime }) => {
           })
         }
         <div className={hourlyStyles.link}>
-          <Link href="#"><a>See further into the day...</a></Link>
+          <span className={hourlyStyles.linktext} onClick={handleClick}>See further into the day...</span>
         </div>
       </div>
     </div>

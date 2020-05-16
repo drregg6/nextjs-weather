@@ -14,9 +14,14 @@ import Daily from '../../components/weather/daily';
 
 // Will return weather from the search query
 const Weather = ({ weather, location }) => {
-  console.log(location)
   const datetime = Date.now();
   const { city, state, state_code, country_code } = location.components;
+  let link;
+  if (city !== undefined) {
+    link = city.toLowerCase();
+  } else {
+    link = state.toLowerCase();
+  }
   const { current } = weather;
   const daily = weather.daily.slice(0,3)
   const hourly = weather.hourly.slice(0,12);
@@ -27,9 +32,9 @@ const Weather = ({ weather, location }) => {
           <h1>{`${city ? city : state}, ${state_code !== undefined ? state_code + ',' : ''} ${country_code.toUpperCase()}`}</h1>
         </div>
         <div className={weatherStyles.main}>
-          <Hourly hourly={hourly} datetime={datetime} />
+          <Hourly link={link} hourly={hourly} datetime={datetime} />
           <Current current={current} datetime={datetime} />
-          <Daily daily={daily} datetime={datetime} />
+          <Daily link={link} daily={daily} datetime={datetime} />
         </div>
       </div>
     </Layout>
