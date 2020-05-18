@@ -1,13 +1,46 @@
 import Link from 'next/link';
+import Moment from 'react-moment';
+import { getIcon } from '../../utils/weatherHelper';
+import dailyStyles from './daily.module.scss';
 
 import Layout from '../../components/layout/layout';
 
 const Daily = ({ location, daily }) => {
-  const city = 'Philadelphia';
+  console.log(daily)
+  const datetime = Date.now();
+  const { city, state } = location.components;
+  let link;
+  if (city !== undefined) {
+    link = city.toLowerCase();
+  } else {
+    link = state.toLowerCase();
+  }
   return (
     <Layout>
-      <h1>Hi from Daily</h1>
-      <Link href={`/city/weather?city=${city}`}><a>Go back</a></Link>
+      <Link href={`/city/weather?city=${city}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
+      <h1 className={dailyStyles.title}>{ link.toUpperCase() }</h1>
+      <div className={dailyStyles.container}>
+        {
+          daily.map((day, idx) => {
+            return (
+              <div>
+                <div>
+                  <small><Moment add={{ days: `${idx+1}` }} format="dddd">{datetime}</Moment></small>
+                  <h2><Moment add={{ days: `${idx+1}` }} format="DD MMM">{datetime}</Moment></h2>
+                </div>
+                <div>
+                  <img src={getIcon(day.weather[0].icon)} alt={day.weather[0].description} />
+                  <div>
+                    <p>High: {Math.floor(day.temp.max)}&deg;</p>
+                    <p>Low: {Math.floor(day.temp.min)}&deg;</p>
+                    <small>Feels like: {Math.floor(day.feels_like.day)}</small>
+                  </div>
+                </div>
+              </div>
+            )
+          })
+        }
+      </div>
     </Layout>
   )
 }
@@ -25,7 +58,7 @@ export async function getServerSideProps(ctx) {
   // return to props
   return {
     props: {
-      location: loc_data.results[0].components,
+      location: loc_data.results[0],
       daily: weather_data.daily
     }
   }
