@@ -1,0 +1,16 @@
+.back {
+  font-size: 2rem;
+}
+
+.title {
+  font-size: 3.4rem
+}
+
+.container {
+  margin: 5rem 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 5rem;
+}

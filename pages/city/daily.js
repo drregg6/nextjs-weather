@@ -24,7 +24,7 @@ const Daily = ({ location, daily }) => {
         {
           daily.map((day, idx) => {
             return (
-              <div>
+              <div key={idx}>
                 <div>
                   <small><Moment add={{ days: `${idx+1}` }} format="dddd">{datetime}</Moment></small>
                   <h2><Moment add={{ days: `${idx+1}` }} format="DD MMM">{datetime}</Moment></h2>

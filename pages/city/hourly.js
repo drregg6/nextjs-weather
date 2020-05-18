@@ -1,15 +1,39 @@
 import Link from 'next/link';
+import Moment from 'react-moment';
+import { getIcon } from '../../utils/weatherHelper';
+import { capitalize } from '../../utils/stringHelper';
+import hourlyStyles from './hourly.module.scss';
 
 import Layout from '../../components/layout/layout';
 
 const Hourly = ({ location, hourly }) => {
-  const city = 'Philadelphia';
-  console.log(location);
   console.log(hourly)
+  const datetime = Date.now();
+  const { city, state } = location.components;
+  let link;
+  if (city !== undefined) {
+    link = city.toLowerCase();
+  } else {
+    link = state.toLowerCase();
+  }
   return (
     <Layout>
-      <h1>Hi from Hourly</h1>
-      <Link href={`/city/weather?city=${city}`}><a>Go back</a></Link>
+      <Link href={`/city/weather?city=${city}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
+      <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>
+      <div className={hourlyStyles.container}>
+        {
+          hourly.map((hour, idx) => {
+            return (
+              <div key={idx}>
+                <h2><Moment add={{ hours: `${idx+1}` }} format="H:mm">{datetime}</Moment></h2>
+                <img src={getIcon(hour.weather[0].icon)} alt={hour.weather[0].description} />
+                <small>{hour.weather[0].description}</small>
+                <p>Temp: {Math.floor(hour.temp)}&deg;</p>
+              </div>
+            )
+          })
+        }
+      </div>
     </Layout>
   )
 }
@@ -27,7 +51,7 @@ export async function getServerSideProps(ctx) {
   // return to props
   return {
     props: {
-      location: loc_data.results[0].components,
+      location: loc_data.results[0],
       hourly: weather_data.hourly
     }
   }
