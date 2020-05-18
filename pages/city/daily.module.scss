@@ -13,3 +13,13 @@
   grid-template-rows: 1fr 1fr 1fr;
   row-gap: 5rem;
 }
+
+.inner {
+  display: flex;
+  justify-content: center;
+
+  div {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+}

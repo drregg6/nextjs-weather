@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Moment from 'react-moment';
 import { getIcon } from '../../utils/weatherHelper';
+import { capitalize } from '../../utils/stringHelper';
 import dailyStyles from './daily.module.scss';
 
 import Layout from '../../components/layout/layout';
@@ -28,12 +29,16 @@ const Daily = ({ location, daily }) => {
                   <small><Moment add={{ days: `${idx+1}` }} format="dddd">{datetime}</Moment></small>
                   <h2><Moment add={{ days: `${idx+1}` }} format="DD MMM">{datetime}</Moment></h2>
                 </div>
-                <div>
-                  <img src={getIcon(day.weather[0].icon)} alt={day.weather[0].description} />
+                <img src={getIcon(day.weather[0].icon)} alt={day.weather[0].description} />
+                <small>{ capitalize(day.weather[0].description) }</small>
+                <div className={dailyStyles.inner}>
                   <div>
                     <p>High: {Math.floor(day.temp.max)}&deg;</p>
                     <p>Low: {Math.floor(day.temp.min)}&deg;</p>
                     <small>Feels like: {Math.floor(day.feels_like.day)}</small>
+                  </div>
+                  <div>
+                    Wind: {day.wind_speed}
                   </div>
                 </div>
               </div>
