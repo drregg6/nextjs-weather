@@ -22,9 +22,9 @@ const Daily = ({ location, daily }) => {
       <h1 className={dailyStyles.title}>{ link.toUpperCase() }</h1>
       <div className={dailyStyles.container}>
         {
-          daily.map((day, idx) => {
+          daily.slice(0,5).map((day, idx) => {
             return (
-              <div key={idx}>
+              <div key={idx} className={dailyStyles.day}>
                 <div>
                   <small><Moment add={{ days: `${idx+1}` }} format="dddd">{datetime}</Moment></small>
                   <h2><Moment add={{ days: `${idx+1}` }} format="DD MMM">{datetime}</Moment></h2>

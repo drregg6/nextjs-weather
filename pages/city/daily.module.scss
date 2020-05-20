@@ -8,10 +8,22 @@
 
 .container {
   margin: 5rem 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  row-gap: 5rem;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr 1fr;
+  // grid-template-rows: 1fr 1fr 1fr;
+  // row-gap: 5rem;
+  display: flex;
+  justify-content: center;
+
+  .day {
+    padding: 2rem 2.5rem;
+    border: 2px solid black;
+    border-right: 0;
+
+    &:last-child {
+      border-right: 2px solid black;
+    }
+  }
 }
 
 .inner {
@@ -21,5 +33,23 @@
   div {
     margin-left: .5rem;
     margin-right: .5rem;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+    margin: 5rem 5rem;
+    
+    .day {
+      padding: 8rem 2rem;
+      border: 2px solid black;
+      border-bottom: 0;
+
+      &:last-child {
+        border-bottom: 2px solid black;
+      }
+    }
   }
 }
