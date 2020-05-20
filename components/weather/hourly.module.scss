@@ -27,8 +27,12 @@
     align-items: center;
     justify-content: space-between;
 
+    p {
+      margin-right: 1rem;
+    }
     img {
       width: 50px;
+      margin-left: 1rem;
     }
   }
 

@@ -1,5 +1,8 @@
-.back {
-  font-size: 2rem;
+.top {
+  font-size: 1.5rem;
+  padding: 1rem 25rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
@@ -13,4 +16,15 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   row-gap: 5rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .top {
+    flex-direction: column;
+    padding: 1rem;
+
+    .back {
+      margin-bottom: .5rem;
+    }
+  }
 }

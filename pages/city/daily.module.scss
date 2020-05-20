@@ -1,5 +1,8 @@
-.back {
-  font-size: 2rem;
+.top {
+  font-size: 1.5rem;
+  padding: 1rem 25rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .title {
@@ -8,14 +11,11 @@
 
 .container {
   margin: 5rem 0;
-  // display: grid;
-  // grid-template-columns: 1fr 1fr 1fr;
-  // grid-template-rows: 1fr 1fr 1fr;
-  // row-gap: 5rem;
   display: flex;
   justify-content: center;
 
   .day {
+    font-size: 1.5rem;
     padding: 2rem 2.5rem;
     border: 2px solid black;
     border-right: 0;
@@ -23,21 +23,30 @@
     &:last-child {
       border-right: 2px solid black;
     }
-  }
-}
 
-.inner {
-  display: flex;
-  justify-content: center;
+    .dayTitle {
+      h2 {
+        font-size: 2.25rem;
+      }
 
-  div {
-    margin-left: .5rem;
-    margin-right: .5rem;
+      small {
+        font-size: 1.5rem;
+      }
+    }
   }
 }
 
 
 @media only screen and (max-width: 600px) {
+  .top {
+    flex-direction: column;
+    padding: 1rem;
+
+    .back {
+      margin-bottom: .5rem;
+    }
+  }
+
   .container {
     flex-direction: column;
     margin: 5rem 5rem;

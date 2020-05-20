@@ -1,6 +1,18 @@
+/*
+
+Prec %
+Wind Dir / Speed
+Humidity %
+
+*/
+
 import Link from 'next/link';
 import Moment from 'react-moment';
-import { getIcon } from '../../utils/weatherHelper';
+import {
+  getIcon,
+  toCelsius,
+  toFahrenheit
+} from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 import dailyStyles from './daily.module.scss';
 
@@ -8,6 +20,8 @@ import Layout from '../../components/layout/layout';
 
 const Daily = ({ location, daily }) => {
   console.log(daily)
+  let isFahrenheit = true;
+  let isCelsius = false;
   const datetime = Date.now();
   const { city, state } = location.components;
   let link;
@@ -16,31 +30,38 @@ const Daily = ({ location, daily }) => {
   } else {
     link = state.toLowerCase();
   }
+
+  const handleFahrenheit = () => {
+
+  }
+  const handleCelsius = () => {
+
+  }
+
   return (
     <Layout>
-      <Link href={`/city/weather?city=${city}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
-      <h1 className={dailyStyles.title}>{ link.toUpperCase() }</h1>
+      <div className={dailyStyles.top}>
+        <Link href={`/city/weather?city=${city}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
+        <p><span>C</span> | <span>F</span></p>
+      </div>
+      <h1 className={dailyStyles.title}>{ capitalize(link) }</h1>
       <div className={dailyStyles.container}>
         {
           daily.slice(0,5).map((day, idx) => {
+            const humidity = day.humidity;
+            const highTemp = Math.floor(day.temp.max);
+            const lowTemp = Math.floor(day.temp.min);
+            const feelsLike = Math.floor(day.feels_like.day);
             return (
               <div key={idx} className={dailyStyles.day}>
-                <div>
-                  <small><Moment add={{ days: `${idx+1}` }} format="dddd">{datetime}</Moment></small>
+                <div className={dailyStyles.dayTitle}>
+                  <small><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></small>
                   <h2><Moment add={{ days: `${idx+1}` }} format="DD MMM">{datetime}</Moment></h2>
                 </div>
                 <img src={getIcon(day.weather[0].icon)} alt={day.weather[0].description} />
                 <small>{ capitalize(day.weather[0].description) }</small>
-                <div className={dailyStyles.inner}>
-                  <div>
-                    <p>High: {Math.floor(day.temp.max)}&deg;</p>
-                    <p>Low: {Math.floor(day.temp.min)}&deg;</p>
-                    <small>Feels like: {Math.floor(day.feels_like.day)}</small>
-                  </div>
-                  <div>
-                    Wind: {day.wind_speed}
-                  </div>
-                </div>
+                <p>{highTemp}&deg;F / {lowTemp}&deg;F</p>
+                <small>{feelsLike}&deg;F</small>
               </div>
             )
           })
