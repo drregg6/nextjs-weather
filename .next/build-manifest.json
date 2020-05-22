@@ -20,11 +20,11 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/city/[weather]": [
+    "/city/daily": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/city/daily": [
+    "/city/hourly": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]

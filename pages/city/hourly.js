@@ -18,9 +18,9 @@ const Hourly = ({ location, hourly }) => {
   }
   return (
     <Layout>
-      <div className={dailyStyles.top}>
-        <Link href={`/city/weather?city=${city}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
-        <p><span>C</span> | <span>F</span></p>
+      <div className={hourlyStyles.top}>
+        <Link href={`/city/weather?city=${city}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
+        <p><span>&deg;C</span> | <span>&deg;F</span> | <span>&deg;K</span></p>
       </div>
       <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>
       <div className={hourlyStyles.container}>
