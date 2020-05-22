@@ -18,12 +18,14 @@
 }
 
 .day {
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
   border-bottom: 2px dotted black;
   padding: 1rem;
 
   img {
     margin: 0 auto;
+    width: 75px;
   }
 
   &:first-child {
@@ -32,9 +34,9 @@
 }
 
 .link {
-  padding: 8rem 0;
+  padding: 2rem 0;
   font-size: 1.4rem;
-  background: gray;
+  background: peachpuff;
 }
 
 .linktext {

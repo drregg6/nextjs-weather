@@ -14,26 +14,14 @@
 }
 
 .hour {
-  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+
+  padding: 1.25rem 0;
   border-bottom: 2px dashed black;
 
-  .time {
-    font-size: 1.4rem;
-    margin-top: .75rem;
-  }
-
-  .details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    p {
-      margin-right: 1rem;
-    }
-    img {
-      width: 50px;
-      margin-left: 1rem;
-    }
+  img {
+    width: 50px;
   }
 
   &:first-child {
@@ -43,7 +31,7 @@
 
 .link {
   font-size: 1.4rem;
-  padding: 4rem 0;
+  padding: 2rem 0;
   background: gray;
 }
 

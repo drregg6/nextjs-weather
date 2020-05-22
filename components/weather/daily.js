@@ -25,7 +25,7 @@ const Daily = ({
       <h1 className={dailyStyles.subtitle}>Future Cast</h1>
       <div className={dailyStyles.forecast}>
         {
-          daily.slice(0,2).map((day, idx) => {
+          daily.map((day, idx) => {
             const desc = day.weather[0].description;
             const icon = day.weather[0].icon;
             
@@ -41,6 +41,7 @@ const Daily = ({
               highTemp = changeUnit(highTemp, 'k');
               lowTemp = changeUnit(lowTemp, 'k');
             }
+
             return (
               <div key={idx} className={dailyStyles.day}>
                 <h2 className={dailyStyles.dayname}><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></h2>

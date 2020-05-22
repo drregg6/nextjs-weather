@@ -1,7 +1,12 @@
 /*
 
 TODO
-= fallback to index when error
+= global styling
+= fix styling
+= sidebar layout
+= keydown ENTER == search
+= break up functions
+= color scheme
 
 */
 import { useState } from 'react';
@@ -52,7 +57,7 @@ const Weather = ({ weather, location }) => {
   }
 
   const { current } = weather;
-  const daily = weather.daily.slice(0,3)
+  const daily = weather.daily.slice(0,5)
   const hourly = weather.hourly.slice(0,12);
   return (
     <Layout>
