@@ -1,12 +1,23 @@
+import { useState } from 'react';
 import Link from 'next/link';
-import Moment from 'react-moment';
-import { getIcon } from '../../utils/weatherHelper';
 import hourlyStyles from './hourly.module.scss';
+import {
+  changeUnit,
+  windDegToDir,
+  toMilesPerHour
+} from '../../utils/weatherHelper';
 
 import Layout from '../../components/layout/layout';
+import Hour from '../../components/hourly/hour';
 
 const Hourly = ({ location, hourly }) => {
-  console.log(hourly)
+  const [ units, changeUnits ] = useState({
+    isFahrenheit: false,
+    isCelsius: true,
+    isKelvin: false
+  });
+  let { isFahrenheit, isCelsius } = units;
+
   const datetime = Date.now();
   const { city, state } = location.components;
   let link;
@@ -15,23 +26,71 @@ const Hourly = ({ location, hourly }) => {
   } else {
     link = state.toLowerCase();
   }
+
+  const handleFahrenheit = () => {
+    changeUnits({
+      isFahrenheit: true,
+      isCelsius: false,
+      isKelvin: false
+    });
+  }
+  const handleCelsius = () => {
+    changeUnits({
+      isFahrenheit: false,
+      isCelsius: true,
+      isKelvin: false
+    });
+  }
+  const handleKelvin = () => {
+    changeUnits({
+      isFahrenheit: false,
+      isCelsius: false,
+      isKelvin: true
+    })
+  }
+
   return (
     <Layout>
       <div className={hourlyStyles.top}>
         <Link href={`/city/weather?city=${link}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
-        <p><span>&deg;C</span> | <span>&deg;F</span> | <span>&deg;K</span></p>
+        <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
       </div>
       <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>
       <div className={hourlyStyles.container}>
         {
-          hourly.map((hour, idx) => {
+          hourly.slice(0,12).map((hour, idx) => {
+            const icon = hour.weather[0].icon;
+            const desc = hour.weather[0].description;
+            const windDeg = windDegToDir(hour.wind_deg)
+
+            let windSpd = hour.wind_speed;
+            let temp = Math.floor(hour.temp);
+            let feelsLike = Math.floor(hour.feels_like);
+            if (isFahrenheit) {
+              temp = changeUnit(temp, 'f');
+              feelsLike = changeUnit(feelsLike, 'f');
+              windSpd = toMilesPerHour(windSpd);
+            } else if (isCelsius) {
+              temp = changeUnit(temp, 'c');
+              feelsLike = changeUnit(feelsLike, 'c');
+              windSpd = Math.floor(hour.wind_speed);
+            } else {
+              temp = changeUnit(temp, 'k');
+              feelsLike = changeUnit(feelsLike, 'k');
+              windSpd = Math.floor(hour.wind_speed);
+            }
             return (
-              <div key={idx}>
-                <h2><Moment add={{ hours: `${idx+1}` }} format="H:mm">{datetime}</Moment></h2>
-                <img src={getIcon(hour.weather[0].icon)} alt={hour.weather[0].description} />
-                <small>{hour.weather[0].description}</small>
-                <p>Temp: {Math.floor(hour.temp)}&deg;</p>
-              </div>
+              <Hour
+                datetime={datetime}
+                key={idx}
+                icon={icon}
+                temp={temp}
+                feelsLike={feelsLike}
+                idx={idx}
+                desc={desc}
+                windDeg={windDeg}
+                windSpd={windSpd}
+              />
             )
           })
         }
@@ -46,7 +105,7 @@ export async function getServerSideProps(ctx) {
   // access lat and long from data
   const { lat, lng } = loc_data.results[0].geometry;
   // search for weather data with lat and long data
-  const weather_res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.WEATHER_API}&units=imperial`);
+  const weather_res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.WEATHER_API}&units=metric`);
   const weather_data = await weather_res.json()
 
   console.log(weather_data);
