@@ -86,6 +86,8 @@ const Hourly = ({ location, hourly }) => {
                 icon={icon}
                 temp={temp}
                 feelsLike={feelsLike}
+                isFahrenheit={isFahrenheit}
+                isCelsius={isCelsius}
                 idx={idx}
                 desc={desc}
                 windDeg={windDeg}
