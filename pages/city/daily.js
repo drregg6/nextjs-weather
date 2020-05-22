@@ -8,7 +8,11 @@ Humidity %
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { changeUnit } from '../../utils/weatherHelper';
+import {
+  changeUnit,
+  toMilesPerHour,
+  windDegToDir
+} from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 import dailyStyles from './daily.module.scss';
 
@@ -16,6 +20,7 @@ import Layout from '../../components/layout/layout';
 import Day from '../../components/daily/day';
 
 const Daily = ({ location, daily }) => {
+  console.log(daily);
   const [ units, changeUnits ] = useState({
     isFahrenheit: false,
     isCelsius: true,
@@ -67,6 +72,9 @@ const Daily = ({ location, daily }) => {
             const desc = day.weather[0].description;
             const icon = day.weather[0].icon;
             const humidity = day.humidity;
+            const windDeg = windDegToDir(day.wind_deg);
+
+            let windSpd = Math.floor(day.wind_speed);
             let highTemp = Math.floor(day.temp.max);
             let lowTemp = Math.floor(day.temp.min);
             let feelsLike = Math.floor(day.feels_like.day);
@@ -74,18 +82,22 @@ const Daily = ({ location, daily }) => {
               highTemp = changeUnit(highTemp, 'f');
               lowTemp = changeUnit(lowTemp, 'f');
               feelsLike = changeUnit(feelsLike, 'f');
+              windSpd = toMilesPerHour(windSpd);
             } else if (isCelsius) {
               highTemp = changeUnit(highTemp, 'c');
               lowTemp = changeUnit(lowTemp, 'c');
               feelsLike = changeUnit(feelsLike, 'c');
+              windSpd = Math.floor(day.wind_speed);
             } else {
               highTemp = changeUnit(highTemp, 'k');
               lowTemp = changeUnit(lowTemp, 'k');
               feelsLike = changeUnit(feelsLike, 'k');
+              windSpd = Math.floor(day.wind_speed);
             }
             return (
               <Day
                 datetime={datetime}
+                key={idx}
                 idx={idx}
                 humidity={humidity}
                 highTemp={highTemp}
@@ -96,6 +108,8 @@ const Daily = ({ location, daily }) => {
                 desc={desc}
                 icon={icon}
                 humidity={humidity}
+                windDeg={windDeg}
+                windSpd={windSpd}
               />
             )
           })

@@ -1,5 +1,5 @@
 import Moment from 'react-moment';
-import { getIcon } from '../../utils/weatherHelper';
+import { getIcon, windDegToDir } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 
 import dayStyles from './day.module.scss';
@@ -14,10 +14,13 @@ const Day = ({
   datetime,
   humidity,
   icon,
-  desc
+  desc,
+  windDeg,
+  windSpd
 }) => {
+  console.log(windDeg);
   return (
-    <div key={idx} className={dayStyles.day}>
+    <div className={dayStyles.day}>
       <div className={dayStyles.title}>
         <small><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></small>
         <h2><Moment add={{ days: `${idx}` }} format="DD MMM">{datetime}</Moment></h2>
@@ -27,7 +30,12 @@ const Day = ({
       <p>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
       <small>{feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</small>
       <div className={dayStyles.more}>
-        <p>Humidity: {humidity}%</p>
+        <p>
+          <span className="strong">Humidity:</span> {humidity}%
+        </p>
+        <p>
+          <span className="strong">Wind:</span> {windSpd} {isFahrenheit ? 'miles/hr' : 'meter/sec'} {windDeg}
+        </p>
       </div>
     </div>
   )
