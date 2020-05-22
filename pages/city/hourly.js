@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Moment from 'react-moment';
 import { getIcon } from '../../utils/weatherHelper';
-import { capitalize } from '../../utils/stringHelper';
 import hourlyStyles from './hourly.module.scss';
 
 import Layout from '../../components/layout/layout';
@@ -19,7 +18,7 @@ const Hourly = ({ location, hourly }) => {
   return (
     <Layout>
       <div className={hourlyStyles.top}>
-        <Link href={`/city/weather?city=${city}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
+        <Link href={`/city/weather?city=${link}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
         <p><span>&deg;C</span> | <span>&deg;F</span> | <span>&deg;K</span></p>
       </div>
       <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>

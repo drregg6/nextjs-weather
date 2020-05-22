@@ -1,8 +1,13 @@
 .top {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   padding: 1rem 25rem;
   display: flex;
   justify-content: space-between;
+
+  span {
+    cursor: pointer;
+    color: red;
+  }
 }
 
 .title {

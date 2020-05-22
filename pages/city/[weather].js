@@ -47,7 +47,7 @@ export async function getServerSideProps(ctx) {
   // access lat and long from data
   const { lat, lng } = loc_data.results[0].geometry;
   // search for weather data with lat and long data
-  const weather_res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.WEATHER_API}&units=imperial`);
+  const weather_res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.WEATHER_API}&units=metric`);
   const weather_data = await weather_res.json()
 
   console.log(weather_data);

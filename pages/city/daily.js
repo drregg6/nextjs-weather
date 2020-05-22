@@ -17,8 +17,8 @@ import Day from '../../components/daily/day';
 
 const Daily = ({ location, daily }) => {
   const [ units, changeUnits ] = useState({
-    isFahrenheit: true,
-    isCelsius: false,
+    isFahrenheit: false,
+    isCelsius: true,
     isKelvin: false
   });
   let { isFahrenheit, isCelsius } = units;
@@ -57,13 +57,13 @@ const Daily = ({ location, daily }) => {
   return (
     <Layout>
       <div className={dailyStyles.top}>
-        <Link href={`/city/weather?city=${city}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
+        <Link href={`/city/weather?city=${link}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
         <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
       </div>
       <h1 className={dailyStyles.title}>{ capitalize(link) }</h1>
       <div className={dailyStyles.container}>
         {
-          daily.slice(0,5).map((day, idx) => {
+          daily.map((day, idx) => {
             const desc = day.weather[0].description;
             const icon = day.weather[0].icon;
             const humidity = day.humidity;
@@ -111,7 +111,7 @@ export async function getServerSideProps(ctx) {
   // access lat and long from data
   const { lat, lng } = loc_data.results[0].geometry;
   // search for weather data with lat and long data
-  const weather_res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.WEATHER_API}&units=imperial`);
+  const weather_res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&appid=${process.env.WEATHER_API}&units=metric`);
   const weather_data = await weather_res.json()
 
   console.log(weather_data);

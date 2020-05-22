@@ -26,8 +26,8 @@ const Day = ({
       <small>{ capitalize(desc) }</small>
       <p>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
       <small>{feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</small>
-      <div className="more-information">
-        <p>Humidity: {humidity}</p>
+      <div className={dayStyles.more}>
+        <p>Humidity: {humidity}%</p>
       </div>
     </div>
   )
