@@ -1,5 +1,5 @@
 import Moment from 'react-moment';
-import { getIcon, windDegToDir } from '../../utils/weatherHelper';
+import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 
 import dayStyles from './day.module.scss';

@@ -1,6 +1,6 @@
 .day {
   font-size: 1.5rem;
-  padding: 2rem 2.5rem;
+  padding: 2rem 2rem;
   border: 2px solid black;
   border-right: 0;
 
@@ -26,12 +26,18 @@
 
 @media only screen and (max-width: 600px) {
   .day {
-    padding: 8rem 2rem;
+    padding: 4rem 0;
+    margin: 0 2rem;
     border: 2px solid black;
     border-bottom: 0;
+    font-size: 2rem;
 
     &:last-child {
       border-bottom: 2px solid black;
+    }
+
+    .more {
+      font-size: 1.5rem;
     }
   }
 }
