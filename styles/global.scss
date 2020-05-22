@@ -85,6 +85,14 @@ select {
   font: inherit;
 }
 
+table {
+  border-spacing: 0;
+}
+th {
+  font-weight: bold;
+  padding: 0;
+}
+
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   * {

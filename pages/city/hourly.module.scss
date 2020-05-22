@@ -19,6 +19,29 @@
   margin: 5rem auto;
 }
 
+.thead {
+  tr {
+    th {
+      font-size: 1.5rem;
+      padding: 1rem 0;
+      background: skyblue;
+      border-bottom: 1px solid black;
+    }
+  }
+}
+
+.tbody {
+  tr {
+    font-size: 1.25rem;
+    &:nth-child(even) {
+      background: lightgrey;
+    }
+    &:hover {
+      background: grey;
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .top {
     flex-direction: column;

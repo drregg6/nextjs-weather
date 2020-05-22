@@ -57,7 +57,7 @@ const Hourly = ({ location, hourly }) => {
       </div>
       <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>
       <table className={hourlyStyles.container}>
-        <thead>
+        <thead className={hourlyStyles.thead}>
           <tr>
             <th>Time</th>
             <th>Image</th>
@@ -67,7 +67,7 @@ const Hourly = ({ location, hourly }) => {
             <th>Wind</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={hourlyStyles.tbody}>
         {
           hourly.slice(0,12).map((hour, idx) => {
             const icon = hour.weather[0].icon;
