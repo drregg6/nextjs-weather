@@ -1,6 +1,7 @@
 import Moment from 'react-moment';
 import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
+import { roundToHour } from '../../utils/dateHelper';
 
 import hourStyles from './hour.module.scss';
 
@@ -16,15 +17,26 @@ const Hour = ({
   windSpd,
   windDeg
 }) => {
+  const time = new Date(datetime);
   return (
-    <div className={hourStyles.container}>
-      <h2><Moment add={{ hours: `${idx}` }} format="H:mm">{datetime}</Moment></h2>
-      <img src={getIcon(icon)} alt={desc} />
-      <small>{capitalize(desc)}</small>
-      <p>{temp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
-      <p>{feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
-      <p>{windSpd} {windDeg} {isFahrenheit ? 'miles/hr' : 'meter/sec'}</p>
-    </div>
+    <tr>
+      <td>
+        <h2><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></h2>
+      </td>
+      <td className={hourStyles.image}>
+        <img src={getIcon(icon)} alt={desc} />
+      </td>
+      <td>{capitalize(desc)}</td>
+      <td>
+        {temp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}
+      </td>
+      <td>
+        {feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}
+      </td>
+      <td>
+        {windSpd} {windDeg} {isFahrenheit ? 'miles/hr' : 'meter/sec'}
+      </td>
+    </tr>
   )
 }
 

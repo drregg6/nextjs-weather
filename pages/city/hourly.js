@@ -56,7 +56,18 @@ const Hourly = ({ location, hourly }) => {
         <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
       </div>
       <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>
-      <div className={hourlyStyles.container}>
+      <table className={hourlyStyles.container}>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Temperature</th>
+            <th>Feels Like</th>
+            <th>Wind</th>
+          </tr>
+        </thead>
+        <tbody>
         {
           hourly.slice(0,12).map((hour, idx) => {
             const icon = hour.weather[0].icon;
@@ -96,7 +107,8 @@ const Hourly = ({ location, hourly }) => {
             )
           })
         }
-      </div>
+        </tbody>
+      </table>
     </Layout>
   )
 }
