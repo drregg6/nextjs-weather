@@ -2,10 +2,9 @@
 
 TODO
 = fallback to index when error
-= create components for flash, hourly, and daily
-= create components to isolate and provide more information(?)
 
 */
+import { useState } from 'react';
 import weatherStyles from './weather.module.scss';
 import Layout from '../../components/layout/layout';
 import Current from '../../components/weather/current';
@@ -14,6 +13,13 @@ import Daily from '../../components/weather/daily';
 
 // Will return weather from the search query
 const Weather = ({ weather, location }) => {
+  const [ units, changeUnits ] = useState({
+    isFahrenheit: false,
+    isCelsius: true,
+    isKelvin: false
+  });
+  let { isFahrenheit, isCelsius } = units;
+
   const datetime = Date.now();
   const { city, state, state_code, country_code } = location.components;
   let link;
@@ -22,6 +28,29 @@ const Weather = ({ weather, location }) => {
   } else {
     link = state.toLowerCase();
   }
+
+  const handleFahrenheit = () => {
+    changeUnits({
+      isFahrenheit: true,
+      isCelsius: false,
+      isKelvin: false
+    });
+  }
+  const handleCelsius = () => {
+    changeUnits({
+      isFahrenheit: false,
+      isCelsius: true,
+      isKelvin: false
+    });
+  }
+  const handleKelvin = () => {
+    changeUnits({
+      isFahrenheit: false,
+      isCelsius: false,
+      isKelvin: true
+    })
+  }
+
   const { current } = weather;
   const daily = weather.daily.slice(0,3)
   const hourly = weather.hourly.slice(0,12);
@@ -30,11 +59,29 @@ const Weather = ({ weather, location }) => {
       <div className={weatherStyles.container}>
         <div className={weatherStyles.title}>
           <h1>{`${city ? city : state}, ${state_code !== undefined ? state_code + ',' : ''} ${country_code.toUpperCase()}`}</h1>
+          <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
         </div>
         <div className={weatherStyles.main}>
-          <Hourly link={link} hourly={hourly} datetime={datetime} />
-          <Current current={current} datetime={datetime} />
-          <Daily link={link} daily={daily} datetime={datetime} />
+          <Hourly
+            isFahrenheit={isFahrenheit}
+            isCelsius={isCelsius}
+            link={link}
+            hourly={hourly}
+            datetime={datetime}
+          />
+          <Current
+            isFahrenheit={isFahrenheit}
+            isCelsius={isCelsius}
+            current={current}
+            datetime={datetime}
+          />
+          <Daily
+            isFahrenheit={isFahrenheit}
+            isCelsius={isCelsius}
+            link={link}
+            daily={daily}
+            datetime={datetime}
+          />
         </div>
       </div>
     </Layout>

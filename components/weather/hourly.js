@@ -1,10 +1,17 @@
 import Moment from 'react-moment';
+import { roundToHour } from '../../utils/dateHelper';
 import hourlyStyles from './hourly.module.scss';
 import Router from 'next/router';
 
-import { getIcon } from '../../utils/weatherHelper';
+import { getIcon, changeUnit } from '../../utils/weatherHelper';
 
-const Hourly = ({ link, hourly, datetime }) => {
+const Hourly = ({
+  link,
+  hourly,
+  datetime,
+  isFahrenheit,
+  isCelsius
+}) => {
   // Router
   const handleClick = () => {
     Router.push({
@@ -14,6 +21,7 @@ const Hourly = ({ link, hourly, datetime }) => {
       }
     })
   }
+  const time = new Date(datetime);
 
   console.log(hourly);
   return (
@@ -22,12 +30,22 @@ const Hourly = ({ link, hourly, datetime }) => {
       <div className={hourlyStyles.forecast}>
         {
           hourly.slice(0,6).map((hour, idx) => {
+            const icon = hour.weather[0].icon;
+            const desc = hour.weather[0].description;
+            let temp = Math.floor(hour.temp);
+            if (isFahrenheit) {
+              temp = changeUnit(temp, 'f');
+            } else if (isCelsius) {
+              temp = changeUnit(temp, 'c');
+            } else {
+              temp = changeUnit(temp, 'k');
+            }
             return (
               <div key={idx} className={hourlyStyles.hour}>
-                <h2 className={hourlyStyles.time}><Moment add={{ hours: `${idx}` }} format="H:mm">{datetime}</Moment></h2>
+                <h2 className={hourlyStyles.time}><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></h2>
                 <div className={hourlyStyles.details}>
-                  <img src={getIcon(hour.weather[0].icon)} alt={hour.weather[0].description} />
-                  <p>Temp: {Math.floor(hour.temp)}&deg;</p>
+                  <img src={getIcon(icon)} alt={desc} />
+                  <p>Temp: {temp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
                 </div>
               </div>
             )
