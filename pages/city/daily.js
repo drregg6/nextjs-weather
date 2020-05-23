@@ -1,11 +1,3 @@
-/*
-
-Prec %
-Wind Dir / Speed
-Humidity %
-
-*/
-
 import { useState } from 'react';
 import Link from 'next/link';
 import {
@@ -15,6 +7,7 @@ import {
 } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 import dailyStyles from './daily.module.scss';
+import utilStyles from '../../styles/utils.module.scss';
 
 import Layout from '../../components/layout/layout';
 import Day from '../../components/daily/day';
@@ -61,12 +54,12 @@ const Daily = ({ location, daily }) => {
 
   return (
     <Layout>
-      <div className={dailyStyles.top}>
+      <div className={`${dailyStyles.top} ${utilStyles.aLittleLarger}`}>
         <Link href={`/city/weather?city=${link}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
-        <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
+        <p><span onClick={handleCelsius} className={utilStyles.pointer}>&deg;C</span> | <span onClick={handleFahrenheit} className={utilStyles.pointer}>&deg;F</span> | <span onClick={handleKelvin} className={utilStyles.pointer}>&deg;K</span></p>
       </div>
-      <h1 className={dailyStyles.title}>{ capitalize(link) }</h1>
-      <div className={dailyStyles.container}>
+      <h1 className={utilStyles.title}>{ capitalize(link) }</h1>
+      <div className={`${dailyStyles.container} ${utilStyles.mt5}`}>
         {
           daily.map((day, idx) => {
             const desc = day.weather[0].description;

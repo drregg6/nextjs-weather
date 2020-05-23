@@ -1,26 +1,10 @@
 .day {
-  font-size: 1.5rem;
-  padding: 2rem 2rem;
   border: 2px solid black;
   border-right: 0;
+  font-size: 1.25rem;
 
   &:last-child {
     border-right: 2px solid black;
-  }
-
-  .title {
-    h2 {
-      font-size: 2.25rem;
-    }
-
-    small {
-      font-size: 1.5rem;
-    }
-  }
-
-  .more {
-    margin-top: 1rem;
-    font-size: 1.2rem;
   }
 }
 

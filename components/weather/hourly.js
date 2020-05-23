@@ -1,9 +1,10 @@
 import Moment from 'react-moment';
 import { roundToHour } from '../../utils/dateHelper';
-import hourlyStyles from './hourly.module.scss';
 import Router from 'next/router';
-
 import { getIcon, changeUnit } from '../../utils/weatherHelper';
+
+import hourlyStyles from './hourly.module.scss';
+import utilStyles from '../../styles/utils.module.scss';
 
 const Hourly = ({
   link,
@@ -26,10 +27,10 @@ const Hourly = ({
   console.log(hourly);
   return (
     <div className={hourlyStyles.container}>
-      <h1 className={hourlyStyles.subtitle}>Six hour forecast</h1>
+      <h1 className={`${utilStyles.doubleSize} ${utilStyles.mb1}`}>Six hour forecast</h1>
       <div className={hourlyStyles.forecast}>
         {
-          hourly.slice(0,6).map((hour, idx) => {
+          hourly.slice(0,5).map((hour, idx) => {
             const icon = hour.weather[0].icon;
             const desc = hour.weather[0].description;
             let temp = Math.floor(hour.temp);
@@ -41,16 +42,16 @@ const Hourly = ({
               temp = changeUnit(temp, 'k');
             }
             return (
-              <div key={idx} className={hourlyStyles.hour}>
-                <h2 className={hourlyStyles.time}><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></h2>
+              <div key={idx} className={`${hourlyStyles.hour} ${utilStyles.ptb1}`}>
+                <h2 className={utilStyles.aLittleLarger}><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></h2>
                 <img src={getIcon(icon)} alt={desc} />
                 <p>{temp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
               </div>
             )
           })
         }
-        <div className={hourlyStyles.link}>
-          <span className={hourlyStyles.linktext} onClick={handleClick}>See further into the day...</span>
+        <div className={`${utilStyles.ptb3} ${utilStyles.aLittleLarger} ${hourlyStyles.link}`}>
+          <span className={`${hourlyStyles.linkText} ${utilStyles.pointer}`} onClick={handleClick}>See further into the day...</span>
         </div>
       </div>
     </div>

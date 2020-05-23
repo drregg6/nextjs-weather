@@ -27,6 +27,10 @@
     "/city/daily": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/city/hourly": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }

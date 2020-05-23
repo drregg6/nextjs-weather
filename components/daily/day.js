@@ -3,6 +3,7 @@ import { getIcon } from '../../utils/weatherHelper';
 import { capitalize } from '../../utils/stringHelper';
 
 import dayStyles from './day.module.scss';
+import utilStyles from '../../styles/utils.module.scss';
 
 const Day = ({
   highTemp,
@@ -20,21 +21,23 @@ const Day = ({
 }) => {
   console.log(windDeg);
   return (
-    <div className={dayStyles.day}>
+    <div className={`${dayStyles.day} ${utilStyles.p2}`}>
       <div className={dayStyles.title}>
-        <small><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></small>
-        <h2><Moment add={{ days: `${idx}` }} format="DD MMM">{datetime}</Moment></h2>
+        <p className={utilStyles.aLittleLarger}><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></p>
+        <h2 className={utilStyles.doubleSize}><Moment add={{ days: `${idx}` }} format="DD MMM">{datetime}</Moment></h2>
       </div>
       <img src={getIcon(icon)} alt={desc} />
-      <small>{ capitalize(desc) }</small>
-      <p>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
-      <small>{feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</small>
-      <div className={dayStyles.more}>
+      <p className={`${utilStyles.italic}`}>{ capitalize(desc) }</p>
+      <div className={`${dayStyles.temps} ${utilStyles.mtb2}`}>
+        <p>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
+        <p>{feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
+      </div>
+      <div className={`${dayStyles.more} ${utilStyles.normSize}`}>
         <p>
-          <span className="strong">Humidity:</span> {humidity}%
+          <span className={utilStyles.strong}>Humidity:</span> {humidity}%
         </p>
         <p>
-          <span className="strong">Wind:</span> {windSpd} {isFahrenheit ? 'miles/hr' : 'meter/sec'} {windDeg}
+          <span className={utilStyles.strong}>Wind:</span> {windSpd} {isFahrenheit ? 'miles/hr' : 'meter/sec'} {windDeg}
         </p>
       </div>
     </div>

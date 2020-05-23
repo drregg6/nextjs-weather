@@ -1,16 +1,14 @@
 /*
 
 TODO
-= global styling
-= fix styling
-= sidebar layout
-= keydown ENTER == search
 = break up functions
 = color scheme
 
 */
 import { useState } from 'react';
 import weatherStyles from './weather.module.scss';
+import utilStyles from '../../styles/utils.module.scss';
+
 import Layout from '../../components/layout/layout';
 import Current from '../../components/weather/current';
 import Hourly from '../../components/weather/hourly';
@@ -62,9 +60,9 @@ const Weather = ({ weather, location }) => {
   return (
     <Layout>
       <div className={weatherStyles.container}>
-        <div className={weatherStyles.title}>
-          <h1>{`${city ? city : state}, ${state_code !== undefined ? state_code + ',' : ''} ${country_code.toUpperCase()}`}</h1>
-          <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
+        <div className={utilStyles.mb5}>
+          <h1 className={utilStyles.title}>{`${city ? city : state}, ${state_code !== undefined ? state_code + ',' : ''} ${country_code.toUpperCase()}`}</h1>
+          <p className={`${utilStyles.doubleSize}`}><span onClick={handleCelsius} className={utilStyles.pointer}>&deg;C</span> | <span onClick={handleFahrenheit}  className={utilStyles.pointer}>&deg;F</span> | <span onClick={handleKelvin}  className={utilStyles.pointer}>&deg;K</span></p>
         </div>
         <div className={weatherStyles.main}>
           <Hourly

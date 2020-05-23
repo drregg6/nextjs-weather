@@ -1,19 +1,12 @@
 .container {
-  flex: 10 1 auto;
-  font-size: 3.2rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex: 8 1 auto;
 
   img {
     margin: 0 auto;
   }
-}
 
-.temp {
-  small {
-    font-size: 3rem;
+  .moreInfo {
+    font-size: 1.25rem;
   }
 }
 

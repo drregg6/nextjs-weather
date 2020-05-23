@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import hourlyStyles from './hourly.module.scss';
+import utilStyles from '../../styles/utils.module.scss';
 import {
   changeUnit,
   windDegToDir,
@@ -51,20 +52,20 @@ const Hourly = ({ location, hourly }) => {
 
   return (
     <Layout>
-      <div className={hourlyStyles.top}>
+      <div className={`${hourlyStyles.top} ${utilStyles.aLittleLarger}`}>
         <Link href={`/city/weather?city=${link}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
-        <p><span onClick={handleCelsius}>&deg;C</span> | <span onClick={handleFahrenheit}>&deg;F</span> | <span onClick={handleKelvin}>&deg;K</span></p>
+        <p><span onClick={handleCelsius} className={utilStyles.pointer}>&deg;C</span> | <span onClick={handleFahrenheit} className={utilStyles.pointer}>&deg;F</span> | <span onClick={handleKelvin} className={utilStyles.pointer}>&deg;K</span></p>
       </div>
-      <h1 className={hourlyStyles.title}>{ link.toUpperCase() }</h1>
-      <table className={hourlyStyles.container}>
+      <h1 className={utilStyles.title}>{ link.toUpperCase() }</h1>
+      <table className={`${hourlyStyles.table} ${utilStyles.mt5}`}>
         <thead className={hourlyStyles.thead}>
           <tr>
-            <th>Time</th>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Temperature</th>
-            <th>Feels Like</th>
-            <th>Wind</th>
+            <th className={`${utilStyles.aLittleLarger} ${utilStyles.ptb1}`}>Time</th>
+            <th className={`${utilStyles.aLittleLarger} ${utilStyles.ptb1}`}>Image</th>
+            <th className={`${utilStyles.aLittleLarger} ${utilStyles.ptb1}`}>Description</th>
+            <th className={`${utilStyles.aLittleLarger} ${utilStyles.ptb1}`}>Temperature</th>
+            <th className={`${utilStyles.aLittleLarger} ${utilStyles.ptb1}`}>Feels Like</th>
+            <th className={`${utilStyles.aLittleLarger} ${utilStyles.ptb1}`}>Wind</th>
           </tr>
         </thead>
         <tbody className={hourlyStyles.tbody}>

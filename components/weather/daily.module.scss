@@ -2,45 +2,27 @@
   flex: 1 1 auto;
 }
 
-.subtitle {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.dayname {
-  font-size: 1.4rem;
-  margin-bottom: .75rem;
-}
-
-.forecast {
-  display: flex;
-  flex-direction: column;
-}
+// .forecast {
+//   display: flex;
+//   flex-direction: column;
+// }
 
 .day {
   display: flex;
   align-items: center;
-  border-bottom: 2px dotted black;
-  padding: 1rem;
+  border-bottom: 1px solid black;
 
   img {
     margin: 0 auto;
-    width: 75px;
+    width: 50px;
   }
 
   &:first-child {
-    border-top: 2px dotted black;
+    border-top: 1px solid black;
   }
 }
 
-.link {
-  padding: 2rem 0;
-  font-size: 1.4rem;
-  background: peachpuff;
-}
-
-.linktext {
-  cursor: pointer;
+.linkText {
   color: #c4c4c4;
 
   &:hover {

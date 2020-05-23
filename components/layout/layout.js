@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import layoutStyles from './layout.module.scss'
+import utilStyles from '../../styles/utils.module.scss';
 
 import Header from './header';
 import Search from './search';
@@ -10,7 +11,7 @@ export const siteTitle = 'Next.js Weather App';
 
 const Layout = props => {
   return (
-    <div>
+    <div className={layoutStyles.all}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -19,7 +20,7 @@ const Layout = props => {
           <Header />
           <Search />
         </div>
-        <div className={layoutStyles.content}>
+        <div className={`${layoutStyles.content} ${utilStyles.mtb5}`}>
           {props.children}
         </div>
         <Footer />

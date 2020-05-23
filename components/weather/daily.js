@@ -1,8 +1,9 @@
 import Moment from 'react-moment';
-import dailyStyles from './daily.module.scss';
 import Router from 'next/router';
-
 import { getIcon, changeUnit } from '../../utils/weatherHelper';
+
+import dailyStyles from './daily.module.scss';
+import utilStyles from '../../styles/utils.module.scss';
 
 const Daily = ({
   link,
@@ -22,8 +23,8 @@ const Daily = ({
   }
   return (
     <div className={dailyStyles.container}>
-      <h1 className={dailyStyles.subtitle}>Future Cast</h1>
-      <div className={dailyStyles.forecast}>
+      <h1 className={`${utilStyles.doubleSize} ${utilStyles.mb1}`}>Future Cast</h1>
+      <div>
         {
           daily.map((day, idx) => {
             const desc = day.weather[0].description;
@@ -43,19 +44,20 @@ const Daily = ({
             }
 
             return (
-              <div key={idx} className={dailyStyles.day}>
-                <h2 className={dailyStyles.dayname}><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></h2>
+              <div key={idx} className={`${utilStyles.ptb1} ${dailyStyles.day}`}>
+                <h2 className={`${utilStyles.aLittleLarger}`}><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></h2>
                 <img src={getIcon(icon)} alt={desc} />
                 <div>
-                  <p>High: {highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
-                  <p>Low: {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
+                  <p>
+                    {highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}
+                  </p>
                 </div>
               </div>
             )
           })
         }
-        <div className={dailyStyles.link}>
-          <span className={dailyStyles.linktext} onClick={handleClick}>See further into the future...</span>
+        <div className={`${utilStyles.ptb3} ${utilStyles.aLittleLarger} ${dailyStyles.link}`}>
+          <span className={`${dailyStyles.linkText} ${utilStyles.pointer}`} onClick={handleClick}>See further into the future...</span>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ const Hour = ({
   return (
     <tr>
       <td>
-        <h2><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></h2>
+        <p><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></p>
       </td>
       <td className={hourStyles.image}>
         <img src={getIcon(icon)} alt={desc} />
