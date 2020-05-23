@@ -9,6 +9,10 @@
     "static/development/_ssgManifest.js"
   ],
   "pages": {
+    "/": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
     "/_app": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
@@ -20,15 +24,11 @@
     "/_polyfills": [
       "static/runtime/polyfills.js"
     ],
-    "/city/[weather]": [
+    "/index": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ],
-    "/city/daily": [
-      "static/runtime/webpack.js",
-      "static/runtime/main.js"
-    ],
-    "/city/hourly": [
+    "/next/dist/pages/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
     ]
