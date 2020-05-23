@@ -5,8 +5,11 @@ TODO
     - Color scheme
 = Submit button should work when enter is clicked
 = Break up functions
-= index page isn't mobile ready
+= adjust text sizes
+    - title size and 
+    - nav size for mobile
 = README.md
+= random cities should be clickable to get more information
 
 */
 import Layout from '../components/layout/layout';

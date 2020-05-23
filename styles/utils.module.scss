@@ -202,3 +202,9 @@
     color: $warm-color;
   }
 }
+
+@media only screen and (max-width: 530px) {
+  .title {
+    margin-top: 150px;
+  }
+}
