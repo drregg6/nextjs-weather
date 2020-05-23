@@ -62,7 +62,7 @@ const Weather = ({ weather, location }) => {
       <div className={weatherStyles.container}>
         <div className={utilStyles.mb5}>
           <h1 className={utilStyles.title}>{`${city ? city : state}, ${state_code !== undefined ? state_code + ',' : ''} ${country_code.toUpperCase()}`}</h1>
-          <p className={`${utilStyles.doubleSize}`}><span onClick={handleCelsius} className={utilStyles.pointer}>&deg;C</span> | <span onClick={handleFahrenheit}  className={utilStyles.pointer}>&deg;F</span> | <span onClick={handleKelvin}  className={utilStyles.pointer}>&deg;K</span></p>
+          <p className={utilStyles.doubleSize}><span onClick={handleCelsius} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;C</span> | <span onClick={handleFahrenheit} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;F</span> | <span onClick={handleKelvin} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;K</span></p>
         </div>
         <div className={weatherStyles.main}>
           <Hourly

@@ -24,12 +24,14 @@ const Day = ({
     <div className={`${dayStyles.day} ${utilStyles.p2}`}>
       <div className={dayStyles.title}>
         <p className={utilStyles.aLittleLarger}><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></p>
-        <h2 className={utilStyles.doubleSize}><Moment add={{ days: `${idx}` }} format="DD MMM">{datetime}</Moment></h2>
+        <h2 className={`${utilStyles.doubleSize} ${utilStyles.primaryText}`}><Moment add={{ days: `${idx}` }} format="DD MMM">{datetime}</Moment></h2>
       </div>
       <img src={getIcon(icon)} alt={desc} />
       <p className={`${utilStyles.italic}`}>{ capitalize(desc) }</p>
       <div className={`${dayStyles.temps} ${utilStyles.mtb2}`}>
-        <p>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
+        <p>
+          <span className={`${utilStyles.warm}`}>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</span> / <span className={`${utilStyles.cold}`}>{lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</span>
+        </p>
         <p>{feelsLike} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
       </div>
       <div className={`${dayStyles.more} ${utilStyles.normSize}`}>

@@ -21,6 +21,7 @@ const Search = () => {
         value={input}
         className={`${searchStyles.input} ${utilStyles.aLittleLarger}`}
         onChange={(ev) => handleChange(ev)}
+        onFocus={(ev) => console.log(ev)}
       />
       <Link href={`/city/weather?city=${input}`}><a className={`${searchStyles.search} ${utilStyles.aLittleLarger}`}>Search</a></Link>
     </div>

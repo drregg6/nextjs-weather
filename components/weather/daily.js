@@ -49,7 +49,7 @@ const Daily = ({
                 <img src={getIcon(icon)} alt={desc} />
                 <div>
                   <p>
-                    {highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'} / {lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}
+                    <span className={utilStyles.warm}>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</span> / <span className={utilStyles.cold}>{lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</span>
                   </p>
                 </div>
               </div>

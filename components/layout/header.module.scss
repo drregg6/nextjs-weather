@@ -1,6 +1,9 @@
+@import '../../styles/colors.scss';
+
 .header {
   width: 100%;
   padding: 3rem 2rem 3rem;
+  background: $primary-color;
 
   display: flex;
   justify-content: space-between;
@@ -8,13 +11,13 @@
 }
 
 .logo {
-  color: #000;
+  color: $secondary-color;
 }
 .logo:hover {
-  color: #000;
+  color: $secondary-color;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 530px) {
   .header {
     padding: 1rem 0;
     flex-direction: column;

@@ -17,19 +17,19 @@ const Homepage = ({ name, weather }) => {
   return (
     <Layout>
       <h1 className={`${utilStyles.title} ${utilStyles.mb1}`}>{name}</h1>
-      <h2 className={`${utilStyles.doubleSize} ${utilStyles.mb5}`}>
+      <h2 className={`${utilStyles.subtitle} ${utilStyles.mb5}`}>
         {temp} &deg;C with {desc}
       </h2>
-      <p className={`${utilStyles.doubleSize}`}>
+      <p className={`${utilStyles.doubleSize} ${utilStyles.primaryText} ${utilStyles.mt3}`}>
         Want a different city?
       </p>
-      <p className={`${utilStyles.doubleSize}`}>
+      <p className={`${utilStyles.doubleSize} ${utilStyles.primaryText}`}>
         More information?
       </p>
-      <p className={`${utilStyles.doubleSize}`}>
+      <p className={`${utilStyles.doubleSize} ${utilStyles.primaryText}`}>
         See further into the day or week?
       </p>
-      <p className={`${utilStyles.subtitle}`}>
+      <p className={`${utilStyles.doubleSize}`}>
         Search for new cities above!
       </p>
     </Layout>

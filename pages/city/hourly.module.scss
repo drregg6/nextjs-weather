@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .top {
   display: flex;
   justify-content: space-between;
@@ -10,8 +12,8 @@
 .thead {
   tr {
     th {
-      // background: skyblue;
-      border-bottom: 1px solid black;
+      background: $secondary-color;
+      border-bottom: 1px solid $black-color;
     }
   }
 }
@@ -20,15 +22,15 @@
   tr {
     font-size: 1.5rem;
     &:nth-child(even) {
-      // background: lightgrey;
+      background: $primary-light;
     }
     &:hover {
-      // background: grey;
+      background: $primary-pale;
     }
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 530px) {
   .top {
     flex-direction: column;
     padding: 1rem;

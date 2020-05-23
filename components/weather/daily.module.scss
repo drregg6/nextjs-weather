@@ -1,31 +1,45 @@
+@import '../../styles/colors.scss';
+
 .container {
   flex: 1 1 auto;
 }
 
-// .forecast {
-//   display: flex;
-//   flex-direction: column;
-// }
-
 .day {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid $black-color;
 
   img {
     margin: 0 auto;
     width: 50px;
   }
 
+  &:nth-child(odd) {
+    background: $primary-light;
+  }
+  &:hover {
+    background: $primary-pale;
+  }
   &:first-child {
-    border-top: 1px solid black;
+    border-top: 1px solid $black-color;
   }
 }
 
+.link {
+  background: $splash-color;
+}
+
 .linkText {
-  color: #c4c4c4;
+  color: $secondary-color;
 
   &:hover {
-    color: #9a9a9a;
+    color: $secondary-light;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .container {
+    margin-top: 10rem;
+    margin-bottom: 0;
   }
 }

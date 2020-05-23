@@ -1,3 +1,5 @@
+@import './colors.scss';
+
 /* layout */
 .center {
   display: flex;
@@ -18,6 +20,7 @@
 }
 .title {
   font-size: 5rem;
+  color: $primary-color;
 }
 .subtitle {
   font-size: 3rem;
@@ -42,6 +45,21 @@
 }
 .aLittleSmaller {
   font-size: .75rem;
+}
+.primaryText {
+  color: $primary-color;
+}
+.primaryLight {
+  color: $primary-light;
+}
+.primaryPale {
+  color: $primary-pale;
+}
+.warm {
+  color: $warm-color;
+}
+.cold {
+  color: $cold-color;
 }
 
 
@@ -176,4 +194,11 @@
 /* link */
 .pointer {
   cursor: pointer;
+}
+.clickable {
+  color: $splash-color;
+
+  &:hover {
+    color: $warm-color;
+  }
 }

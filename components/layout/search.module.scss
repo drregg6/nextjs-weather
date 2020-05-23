@@ -1,12 +1,14 @@
+@import './colors.scss';
+
 .container {
   width: 100%;
-  background: black;
+  background: $black-color;
 }
 
 .input,
 .search {
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid $black-color;
   outline: none;
   padding: .75rem 1.5rem;
 }
@@ -17,5 +19,5 @@
 }
 
 .search {
-  background: #fff;
+  background: $white-color;
 }
