@@ -5,6 +5,8 @@ TODO
     - Color scheme
 = Submit button should work when enter is clicked
 = Break up functions
+= index page isn't mobile ready
+= README.md
 
 */
 import Layout from '../components/layout/layout';

@@ -21,3 +21,10 @@
 .search {
   background: $white-color;
 }
+
+@media only screen and (max-width: 530px) {
+  .input {
+    width: 300px;
+    margin-right: 0;
+  }
+}
