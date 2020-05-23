@@ -5,8 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
-    "moment": "^2.25.3",
-    "next": "^9.4.0",
+    "moment": "^2.26.0",
+    "next": "^9.4.2",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -19,6 +19,9 @@
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build"
+  },
+  "engines": {
+    "node": "12.3.1"
   },
   "keywords": [],
   "author": "Dave Regg <dave.r.regg@gmail.com>",
