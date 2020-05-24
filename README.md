@@ -3,6 +3,7 @@
 
 ## Table of contents
 * [General info](#general-info)
+* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Features](#features)
@@ -12,6 +13,10 @@
 
 ## General info
 This application is created with [Next.js](https://www.nextjs.org) and [React.js](https://www.reactjs.org) and powered by [Open Weather Map](https://openweathermap.org) and [Open Cage Data](https://opencagedata.com). A user can search for a city in the search bar, and the city's latitude and longitude will be retrieved using Open Cage Data. React.js renders pages created in Next.js to retrieve data from Open Weather Map. A user can navigate to two separate pages to retrieve additional information - a twelve-hour forecast or a seven-day forecast. Information is, once again, retrieved with Open Weather Map using Next.js's Server Side Props function.
+
+## Screenshots
+![index](./img/nextjs_weather_pic.png)
+![/weather?q=philadelphia](./img/nextjs_weather_pic2.png)
 
 ## Technologies
 * Node - version 12.3.1
