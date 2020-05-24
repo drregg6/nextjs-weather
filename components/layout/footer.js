@@ -11,7 +11,7 @@ export default function Footer() {
       </div>
       <div className={footerStyles.right}>
         <p className={utilStyles.normSize}>
-          Weather data <a href="https://www.openweathermap.com" rel="noopener noreferrer" target="_blank">Open Weather Map</a>
+          Weather data <a href="https://www.openweathermap.org" rel="noopener noreferrer" target="_blank">Open Weather Map</a>
         </p>
         <p className={utilStyles.normSize}>
           Location data <a href="https://www.opencagedata.com" target="_blank" rel="noopener noreferrer">Open Cage Data</a>
