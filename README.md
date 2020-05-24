@@ -11,7 +11,7 @@
 * [Contact](#contact)
 
 ## General info
-This application is to give a user easy access to weather around the world. The user can **search** for a city in the world, and the application will give the user the city's current weather. It will also display a three-day and six-hour forecast into the future. The user can navigate to additional pages which have a seven-day forecast and a twelve-hour forecast.
+This application is created with [Next.js](https://www.nextjs.org) and [React.js](https://www.reactjs.org) and powered by [Open Weather Map](https://openweathermap.org) and [Open Cage Data](https://opencagedata.com). A user can search for a city in the search bar, and the city's latitude and longitude will be retrieved using Open Cage Data. React.js renders pages created in Next.js to retrieve data from Open Weather Map. A user can navigate to two separate pages to retrieve additional information - a twelve-hour forecast or a seven-day forecast. Information is, once again, retrieved with Open Weather Map using Next.js's Server Side Props function.
 
 ## Technologies
 * Node - version 12.3.1
