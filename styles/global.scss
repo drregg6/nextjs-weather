@@ -10,6 +10,7 @@
 html {
   color: $black-color;
   font-size: 10px;
+  letter-spacing: .75px;
 }
 
 /* Remove default padding */
@@ -125,10 +126,4 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-@media only screen and (max-width: 530px) {
-  html {
-    font-size: 7.5px;
-  }
 }

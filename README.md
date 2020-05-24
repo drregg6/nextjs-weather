@@ -9,6 +9,7 @@
 * [Features](#features)
 * [Status](#status)
 * [Inspiration](#inspiration)
+* [License](#license)
 * [Contact](#contact)
 
 ## General info
@@ -57,6 +58,9 @@ Project is: _in progress_ due to many adjustments that need to be made, especial
 
 ## Inspiration
 The project is a prompt on [freeCodeCamp](https://www.freecodecamp.org)
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 Dave Regg - [@daveregg](https://www.twitter.com/daveregg) - dave.r.regg@gmail.com

@@ -3,6 +3,10 @@
 .top {
   display: flex;
   justify-content: space-between;
+
+  span {
+    margin: 0 1.5rem;
+  }
 }
 
 .table {
@@ -36,7 +40,14 @@
     padding: 1rem;
 
     .back {
-      margin-bottom: .5rem;
+      margin-bottom: 2rem;
+    }
+  }
+  .table {
+    overflow-x: auto;
+
+    td, th {
+      padding: 2rem;
     }
   }
 }

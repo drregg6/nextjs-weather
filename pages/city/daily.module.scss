@@ -1,6 +1,10 @@
 .top {
   display: flex;
   justify-content: space-between;
+
+  span {
+    margin: 0 1.5rem;
+  }
 }
 
 .container {
@@ -15,12 +19,12 @@
     padding: 1rem;
 
     .back {
-      margin-bottom: .5rem;
+      margin-bottom: 2rem;
     }
   }
 
   .container {
     flex-direction: column;
-    margin: 5rem 5rem;
+    margin: 5rem 0;
   }
 }

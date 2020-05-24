@@ -60,7 +60,7 @@ const Weather = ({ weather, location }) => {
   return (
     <Layout>
       <div className={weatherStyles.container}>
-        <div className={utilStyles.mb5}>
+        <div className={`${utilStyles.mb5} ${weatherStyles.header}`}>
           <h1 className={utilStyles.title}>{`${city ? city : state}, ${state_code !== undefined ? state_code + ',' : ''} ${country_code.toUpperCase()}`}</h1>
           <p className={utilStyles.doubleSize}><span onClick={handleCelsius} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;C</span> | <span onClick={handleFahrenheit} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;F</span> | <span onClick={handleKelvin} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;K</span></p>
         </div>

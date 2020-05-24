@@ -7,9 +7,9 @@ export const Nav = () => {
     <nav className={navStyles.container}>
       <ul>
         <li><Link href="/"><a>Home</a></Link></li>
-        <li><Link href="/city/weather?city=philadelphia"><a>Philadelphia, PA</a></Link></li>
-        <li><Link href="/city/weather?city=portland"><a>Portland, OR</a></Link></li>
-        <li><Link href="/city/weather?city=london"><a>London, UK</a></Link></li>
+        <li><Link href="/city/weather?city=philadelphia"><a>Philadelphia</a></Link></li>
+        <li><Link href="/city/weather?city=portland"><a>Portland</a></Link></li>
+        <li><Link href="/city/weather?city=london"><a>London</a></Link></li>
       </ul>
     </nav>
   )

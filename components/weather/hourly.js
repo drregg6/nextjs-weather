@@ -45,7 +45,7 @@ const Hourly = ({
               <div key={idx} className={`${hourlyStyles.hour} ${utilStyles.ptb1}`}>
                 <h2 className={utilStyles.aLittleLarger}><Moment add={{ hours: `${idx}` }} format="H:mm">{roundToHour(time)}</Moment></h2>
                 <img src={getIcon(icon)} alt={desc} />
-                <p>{temp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
+                <p className={`${utilStyles.aLittleLarger}`}>{temp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</p>
               </div>
             )
           })

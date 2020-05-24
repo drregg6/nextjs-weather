@@ -45,10 +45,10 @@ const Daily = ({
 
             return (
               <div key={idx} className={`${utilStyles.ptb1} ${dailyStyles.day}`}>
-                <h2 className={`${utilStyles.aLittleLarger}`}><Moment add={{ days: `${idx}` }} format="dddd">{datetime}</Moment></h2>
+                <h2 className={`${utilStyles.aLittleLarger}`}><Moment add={{ days: `${idx}` }} format="ddd">{datetime}</Moment></h2>
                 <img src={getIcon(icon)} alt={desc} />
                 <div>
-                  <p>
+                  <p className={`${utilStyles.aLittleLarger}`}>
                     <span className={utilStyles.warm}>{highTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</span> / <span className={utilStyles.cold}>{lowTemp} &deg;{isFahrenheit ? 'F' : isCelsius ? 'C' : 'K'}</span>
                   </p>
                 </div>

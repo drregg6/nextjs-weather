@@ -56,7 +56,9 @@ const Daily = ({ location, daily }) => {
     <Layout>
       <div className={`${dailyStyles.top} ${utilStyles.aLittleLarger}`}>
         <Link href={`/city/weather?city=${link}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
-        <p><span onClick={handleCelsius} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;C</span> | <span onClick={handleFahrenheit} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;F</span> | <span onClick={handleKelvin} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;K</span></p>
+        <p>
+          <span onClick={handleCelsius} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;C</span> | <span onClick={handleFahrenheit} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;F</span> | <span onClick={handleKelvin} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;K</span>
+        </p>
       </div>
       <h1 className={utilStyles.title}>{ capitalize(link) }</h1>
       <div className={`${dailyStyles.container} ${utilStyles.mt5}`}>
