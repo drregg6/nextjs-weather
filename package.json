@@ -4,7 +4,7 @@
   "description": "A weather app created with Next.js",
   "main": "index.js",
   "dependencies": {
-    "moment": "^2.26.0",
+    "moment": "^2.29.2",
     "next": "^9.4.2",
     "node-fetch": "^2.6.0",
     "react": "^16.13.1",
