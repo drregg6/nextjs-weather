@@ -7,7 +7,7 @@ import utilStyles from '../../styles/utils.module.scss';
 export default function Header() {
   return (
     <header className={`${headerStyles.header} ${utilStyles.aLittleLarger}`}>
-      <Link href="/"><a className={`${headerStyles.logo} ${utilStyles.doubleSize}`}>Next.js Weather</a></Link>
+      <Link className={`${headerStyles.logo} ${utilStyles.doubleSize}`} href="/">Next.js Weather</Link>
       <Nav />
     </header>
   )

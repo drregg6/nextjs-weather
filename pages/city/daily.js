@@ -55,7 +55,7 @@ const Daily = ({ location, daily }) => {
   return (
     <Layout>
       <div className={`${dailyStyles.top} ${utilStyles.aLittleLarger}`}>
-        <Link href={`/city/weather?city=${link}`}><a className={dailyStyles.back}>&#8592; Go back</a></Link>
+        <Link className={dailyStyles.back} href={`/city/weather?city=${link}`}>&#8592; Go back</Link>
         <p>
           <span onClick={handleCelsius} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;C</span> | <span onClick={handleFahrenheit} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;F</span> | <span onClick={handleKelvin} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;K</span>
         </p>
@@ -102,7 +102,6 @@ const Daily = ({ location, daily }) => {
                 isCelsius={isCelsius}
                 desc={desc}
                 icon={icon}
-                humidity={humidity}
                 windDeg={windDeg}
                 windSpd={windSpd}
               />

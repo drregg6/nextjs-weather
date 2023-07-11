@@ -53,7 +53,7 @@ const Hourly = ({ location, hourly }) => {
   return (
     <Layout>
       <div className={`${hourlyStyles.top} ${utilStyles.aLittleLarger}`}>
-        <Link href={`/city/weather?city=${link}`}><a className={hourlyStyles.back}>&#8592; Go back</a></Link>
+        <Link className={hourlyStyles.back} href={`/city/weather?city=${link}`}>&#8592; Go back</Link>
         <p><span onClick={handleCelsius} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;C</span> | <span onClick={handleFahrenheit} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;F</span> | <span onClick={handleKelvin} className={`${utilStyles.pointer} ${utilStyles.clickable}`}>&deg;K</span></p>
       </div>
       <h1 className={utilStyles.title}>{ link.toUpperCase() }</h1>
